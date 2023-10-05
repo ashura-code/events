@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_data",
+  "info": {
+    "singularName": "event-datum",
+    "pluralName": "event-data",
+    "displayName": "Event_datum",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "Venue": {
+      "type": "string"
+    },
+    "Organizer": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Total_Seats": {
+      "type": "integer"
+    },
+    "Price": {
+      "type": "integer"
+    },
+    "Category": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "event_data"
+    }
+  }
+}
