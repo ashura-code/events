@@ -23,9 +23,8 @@ export default function Categories() {
           data.map((comp) => (
             <Card
               name={comp.attributes.Name}
-              image={
-                 (comp.attributes.Image.data.attributes.url)
-              }
+              image={comp.attributes.Image.data.attributes.url}
+              id={comp.id}
             />
           ))
         ) : (
