@@ -5,6 +5,8 @@ export default function Button({name}) {
     <div>
         <button
 
+        
+
         style={{
           color:"white",
           background:"black",
