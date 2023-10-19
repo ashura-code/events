@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Navbar from '../components/Navbar';
 
 export default function EventPage() {
   const { id } = useParams();
@@ -35,6 +36,8 @@ export default function EventPage() {
   
 
   return <div>
+
+    <Navbar/>
     {
     data.length > 0 ? 
 

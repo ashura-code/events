@@ -9,9 +9,6 @@ export default function Categories() {
       .then((res) => res.json())
       .then((data) => {
         setData(data.data);
-        data.data.map((a) => {
-          console.log(a.id);
-        });
       });
   }, []);
 
