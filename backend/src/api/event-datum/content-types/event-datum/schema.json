@@ -54,6 +54,12 @@
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "inversedBy": "event_data"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Time": {
+      "type": "time"
     }
   }
 }
