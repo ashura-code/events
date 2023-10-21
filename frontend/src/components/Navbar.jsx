@@ -37,8 +37,9 @@ useEffect(()=>{
             </div>
           ) : (
             <div  className="second">
+            <Link to="/your-tickets"><Button name="Your Tickets"/></Link>
             <Link to="/"> <Button name="Profile" /></Link>
-            <a onClick={unsetToken}><Button onClick={unsetToken} name="Logout" /></a>
+            <a onClick={unsetToken}><Button onClick={unsetToken} name="Logout" /></a> 
           </div>
           )
 

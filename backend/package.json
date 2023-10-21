@@ -9,11 +9,12 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.3.9",
-    "@strapi/plugin-users-permissions": "4.3.9",
+    "@creazy231/strapi-plugin-apollo-sandbox": "^0.0.13",
+    "@strapi/plugin-graphql": "^4.3.9",
     "@strapi/plugin-i18n": "4.3.9",
+    "@strapi/plugin-users-permissions": "4.3.9",
+    "@strapi/strapi": "4.3.9",
     "better-sqlite3": "7.4.6"
   },
   "author": {

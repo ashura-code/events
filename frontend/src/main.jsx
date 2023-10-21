@@ -7,9 +7,15 @@ import Navbar from './components/Navbar.jsx';
 import EventPage from './routes/event-page.jsx';
 import Login from "./routes/login.jsx"
 import Signup from "./routes/signup.jsx"
+import Tickets from "./routes/tickets.jsx"
+import Register from "./routes/register.jsx"
 import './index.css';
+import Cookies from 'js-cookie';
 
-const router = createBrowserRouter([
+
+const user = false;
+
+const routes = [
   {
     path: '/',
     element: <Home />,
@@ -28,10 +34,36 @@ const router = createBrowserRouter([
     element:<Signup/>
   },
 
-]);
+];
+
+// simple protected routes
+if(Cookies.get('username')){ 
+   
+   routes.push({
+    path:"/your-tickets",
+    element:<Tickets/>
+  }, 
+
+  {
+    path:"/event/:id/register",
+    element:<Register/>,
+    errorElement: <Error />,
+  }
+  
+  )
+
+
+   
+}
+
+
+const router = createBrowserRouter(routes);
+
+
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  
     <RouterProvider router={router} />
-  </React.StrictMode>
+
 );

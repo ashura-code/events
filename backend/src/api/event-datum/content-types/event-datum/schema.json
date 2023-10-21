@@ -48,6 +48,12 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "event_data"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "event_data"
     }
   }
 }

@@ -1,6 +1,9 @@
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
+import Cookies from 'js-cookie';
+import Button from  "../components/Button";
+
 
 export default function EventPage() {
   const { id } = useParams();
@@ -38,7 +41,7 @@ export default function EventPage() {
   return <div>
 
     <Navbar/>
-    {
+  {
     data.length > 0 ? 
 
     (
@@ -52,8 +55,19 @@ export default function EventPage() {
         <img src={`http://localhost:1337${Image}`} style={{
           height:"400px",width:"800px"
         }}/>
+
+
+        { 
+         Cookies.get('username') ? (<Link to={`register`}><Button name="register"/></Link>) : (<Link to="/signup"> <Button name="Sign in or Log in to register"/> </Link>)
+
+
+         }
+
       </div>
 
+      
     )
-    : <h1>Loading</h1>}</div>;
+    : <h1>Loading</h1>
+  }
+    </div>;
 }
