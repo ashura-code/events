@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import { useParams } from 'react-router-dom';
 import { getevents } from '../lib/getevents';
 import levenshtein from "js-levenshtein";
+import Card from '../components/card';
 
 
 export default function searchres() {
@@ -22,9 +23,9 @@ useEffect(() => {
                 levenshtein_value = levenshtein_value - 50;
             }
             let ans = levenshtein_value
-            console.log(name)
-            console.log(ans)
-            newArray.push({id,ans})
+            // console.log(name)
+            // console.log(ans)
+            newArray.push({n,ans})
             setResult(newArray)
 
         })
@@ -32,7 +33,16 @@ useEffect(() => {
 
 },[wow])
 
-console.log(result)
+// console.log(result)
+const sortedResult = result.slice().sort((a, b) => a.ans - b.ans);
+// console.log(sortedResult)
+
+
+sortedResult.forEach((comp)=>{ 
+     console.log(comp.n.attributes.Name)
+     console.log(comp.n.attributes.Image.data.attributes.url)
+})
+
 
 
 
@@ -48,6 +58,21 @@ console.log(result)
     <div>
       <Navbar />
       <h1>Results for "{value}"</h1>
+
+       {
+        sortedResult.length > 0 ? (<div className="card-section">
+            {
+                sortedResult.map((comp)=>(
+                    <Card
+                    name={comp.n.attributes.Name}
+                    image={comp.n.attributes.Image.data.attributes.url}
+                    id={comp.n.id}
+                  />
+                ))
+            }
+
+        </div>): <h1>Event not available</h1>
+       }
 
 
      
