@@ -13,6 +13,7 @@ export default function searchres() {
 
 useEffect(() => {
     if(Array.isArray(wow)){  
+        const newArray = [];
         wow.map((n) => { 
             let name = n.attributes.Name.toLowerCase();
             let id = n.id;
@@ -23,8 +24,9 @@ useEffect(() => {
             let ans = levenshtein_value
             console.log(name)
             console.log(ans)
-            setResult([...result,{id,ans}])
-            
+            newArray.push({id,ans})
+            setResult(newArray)
+
         })
      }
 
