@@ -12,5 +12,12 @@ module.exports = {
       },
     },
   },
-};
 
+  plugins: {
+    meilisearch: {
+      enabled: true,
+      resolve: "./src/plugins/meilisearch",
+    },
+  },
+  
+};

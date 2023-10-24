@@ -11,8 +11,7 @@ import Tickets from './routes/tickets.jsx';
 import Register from './routes/register.jsx';
 import './index.css';
 import Cookies from 'js-cookie';
-
-const user = false;
+import Searchres from "./routes/searchres.jsx"
 
 const routes = [
   {
@@ -32,6 +31,10 @@ const routes = [
     path: '/signup',
     element: <Signup />,
   },
+  { 
+    path: "/search/:id",
+    element:<Searchres/>
+  }
 ];
 
 // simple protected routes
