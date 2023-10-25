@@ -24,7 +24,7 @@ export default function Tickets() {
       .then((data) => {
 
         // console.log(data.Purchased);
-
+        console.log()
         let temp = (data.Purchased.replace("[",''))
         temp = temp.replace("]",''); 
         temp = temp.split(",")

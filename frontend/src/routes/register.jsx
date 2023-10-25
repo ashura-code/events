@@ -10,6 +10,7 @@ export default function Register() {
   const { id } = useParams();
   const event_id = Number(id);
   const token = Cookies.get('jwt');
+  const user_id = Number(Cookies.get('id'))
 
   const handleusers = async () => {
     setButton_value("loading...")
@@ -33,6 +34,7 @@ export default function Register() {
       if (data.Purchased === null) {
         data.Purchased = `[${event_id}]`;
         temp = data.Purchased;
+
       } else {
         let temp = JSON.parse(data.Purchased);
         const simiar_event = temp.find((ev_id) => ev_id === event_id);
@@ -65,10 +67,9 @@ export default function Register() {
         redirect: 'follow',
       };
 
-      fetch('http://localhost:1337/api/users/12/?populate=*', requestOptions)
+      fetch(`http://localhost:1337/api/users/${user_id}/?populate=*`, requestOptions)
         .then((response) => console.log(response.text()))
         .then((result) =>  {
-          console.log("starter pokemon")
           console.log(result);
           setButton_value("successfully registered for the event")
         })
