@@ -9,7 +9,8 @@ A GDPR compliant EventManagement app for Universities.
    - JOI (Data validation library)
    - Twilio (Email and messaging services)
    - Typeform (Surveys and feedbacks)
-   - Python (Data processing) 
+   - Python (Data processing)
+   - Webpack
   
   ## Programming Pattern
  currently using functional , modular  programming. 
