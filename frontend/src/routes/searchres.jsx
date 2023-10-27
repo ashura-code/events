@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { useParams } from 'react-router-dom';
-import { getevents } from '../lib/getevents';
+import { getevents } from '../lib/getfunctions';
 import levenshtein from "js-levenshtein";
 import Card from '../components/card';
 

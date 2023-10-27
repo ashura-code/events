@@ -12,6 +12,8 @@ import Register from './routes/register.jsx';
 import './index.css';
 import Cookies from 'js-cookie';
 import Searchres from "./routes/searchres.jsx"
+import UserProfile from "./routes/userprofile.jsx"
+import Policy from "./routes/policy.jsx"
 
 const routes = [
   {
@@ -34,6 +36,10 @@ const routes = [
   { 
     path: "/search/:id",
     element:<Searchres/>
+  },
+  {
+    path:"/privacy policy",
+    element:<Policy/>
   }
 ];
 
@@ -44,12 +50,17 @@ if (Cookies.get('username')) {
       path: '/your-tickets',
       element: <Tickets />,
     },
-
     {
       path: '/event/:id/register',
       element: <Register />,
       errorElement: <Error />,
-    }
+    },
+    {
+       path:"/profile",
+       element:<UserProfile/>,
+       errorElement:<Error/>
+
+    },
   );
 }
 
