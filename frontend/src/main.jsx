@@ -12,6 +12,7 @@ import Register from './routes/register.jsx';
 import './index.css';
 import Cookies from 'js-cookie';
 import Searchres from "./routes/searchres.jsx"
+import Profile from "./routes/profile.jsx"
 
 const routes = [
   {
@@ -49,9 +50,16 @@ if (Cookies.get('username')) {
       path: '/event/:id/register',
       element: <Register />,
       errorElement: <Error />,
+    },
+    {
+      path:"/profile",
+      element:<Profile/>,
+      errorElement:<Error/>
     }
   );
 }
+
+
 
 const router = createBrowserRouter(routes);
 
