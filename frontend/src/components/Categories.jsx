@@ -13,15 +13,17 @@ export default function Categories() {
   }, []);
 
   return (
-    <div className="categories">
-      <h2>All events</h2>
-      <div className="card-section">
+    <div className="categories px-6 mt-24 mb-24">
+      <h2 className='text-3xl text-[#242427] font-semibold mb-4'>All events</h2>
+      <div className="card-section flex flex-wrap gap-5">
         {data.length > 0 ? (
           data.map((comp) => (
             <Card
               name={comp.attributes.Name}
               image={comp.attributes.Image.data.attributes.url}
+              desc ={comp.attributes.Description}
               id={comp.id}
+              
             />
           ))
         ) : (

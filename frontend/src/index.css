@@ -1,8 +1,28 @@
 /* :root{
   background-color: #555;
 } */
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.Navbar {
+
+/* .Navbar {
+  @apply flex justify-between ml-[1em] mb-[3em];
+}
+.Navbar .first,
+.Navbar .second {
+  @apply flex;
+}
+.Navbar .first h1 {
+  @apply mt-[0.2em] p-0;
+}
+.Navbar .second {
+  @apply gap-[1.5em] mr-[1em];
+} */
+
+
+/* .Navbar {
   margin-bottom: 3em;
   display: flex;
   justify-content: space-between;
@@ -55,12 +75,11 @@
   margin-left: 1em;
 }
 
-/* card.css */
 
 
 .card {
   text-decoration: none;
-  color:black;
+  color: black;
   width: 300px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -83,7 +102,7 @@
 .image-container img {
   width: 100%;
   height: auto;
-  object-fit: cover; /* Ensures the image fills the container */
+  object-fit: cover; 
 }
 
 .content {
@@ -105,8 +124,7 @@ p {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-
-a{ 
- text-decoration: none;
- color:black;
-}
+a {
+  text-decoration: none;
+  color: black;
+} */

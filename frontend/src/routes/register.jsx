@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Cookies from 'js-cookie';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '../components/Button';
+import { getevent } from '../lib/getevent';
 
 export default function Register() {
   const [button_value, setButton_value] = useState('confirm your registration');
@@ -11,6 +12,9 @@ export default function Register() {
   const event_id = Number(id);
   const token = Cookies.get('jwt');
   const user_id = Number(Cookies.get('id'))
+
+
+  
 
   const handleusers = async () => {
     setButton_value("loading...")
@@ -81,9 +85,13 @@ export default function Register() {
   return (
     <div>
       <Navbar />
-      <span onClick={handleusers}>
+
+      <div className=' h-[80vh] w-[100%] flex justify-center items-center '>
+      <span onClick={handleusers} className='flex h-[50vh] flex-col justify-center items-center border w-[50%] my-0 mx-auto border-black'>
+        <p className="m-4 text-3xl">Confirming the registration</p>
         <Button name={button_value} />
       </span>
+      </div>
     </div>
   );
 }

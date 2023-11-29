@@ -57,22 +57,26 @@ sortedResult.forEach((comp)=>{
   return (
     <div>
       <Navbar />
-      <h1>Results for "{value}"</h1>
+     <div className='px-6'>
+       <h1 className=" text-5xl font-semibold mb-11">Results for <span className='font-bold'>"{value}"</span></h1>
 
        {
-        sortedResult.length > 0 ? (<div className="card-section">
+        sortedResult.length > 0 ? (<div className="card-section flex flex-wrap gap-4">
             {
                 sortedResult.map((comp)=>(
                     <Card
                     name={comp.n.attributes.Name}
                     image={comp.n.attributes.Image.data.attributes.url}
                     id={comp.n.id}
+                    desc={comp.n.attributes.Description}
                   />
                 ))
             }
 
         </div>): <h1>Event not available</h1>
        }
+
+      </div>
 
 
      

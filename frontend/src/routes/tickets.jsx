@@ -46,10 +46,10 @@ export default function Tickets() {
   return (
     <div>
         <Navbar />
-      <h1>Your tickets will be viewed here</h1>
+      <h1 className=' pl-6 font-semibold text-5xl'>Your tickets will be viewed here</h1>
 
       {registed_events_id.length > 0 ? (
-        <div>
+        <div className='flex flex-col items-center w-[90%] mt-40 mx-auto gap-5'>
           {registed_events_id.map((id) =>  (
            
            <Ticket_card key={( Math.floor(Math.random() * 100) + Math.floor(Math.random() * 100))} id={id}/>
@@ -57,7 +57,7 @@ export default function Tickets() {
         </div>
         
       ) : (
-        <h1>You don't have any tickets</h1>
+        <h1 className='text-center mt-20'>You don't have any tickets</h1>
       )}   
 
       

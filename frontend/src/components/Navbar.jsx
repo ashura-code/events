@@ -18,25 +18,21 @@ useEffect(()=>{
 
 
   return (
-    <div className="Navbar">
-      <div className="first">
-        <Link to="/"><h1>Events</h1></Link>
-        <ul>Music</ul>
-        <ul>Concerts</ul>
-        <ul>Movies</ul>
-        <ul>Others</ul>
+    <div className="Navbar flex justify-between mb-[3em] pb-3 mt-2 border-b px-6">
+      <div className="first flex">
+        <Link to="/"><h1 className="mt-[0.1em] text-[#242427]  text-3xl font-bold p-0">Events</h1></Link>
       </div>
 
       <div>
         {
 
           !user ? (
-            <div  className="second">
-              <Link to="/login"> <Button name="Login" /></Link>
+            <div  className="second flex gap-4 align-middle justify-center">
+              <Link to="/login" > <p className='mt-[0.5em]'>Login</p></Link>
               <Link to="/signup"> <Button name="Signup" /></Link>
             </div>
           ) : (
-            <div  className="second">
+            <div  className="second flex gap-4 align-middle justify-center">
             <Link to="/your-tickets"><Button name="Your Tickets"/></Link>
             <Link to="/profile"> <Button name="Profile" /></Link>
             <a onClick={unsetToken}><Button onClick={unsetToken} name="Logout" /></a> 

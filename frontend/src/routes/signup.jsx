@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import  {setToken}  from '../lib/auth';
+import { Link } from 'react-router-dom';
+
 
 function Signup() {
 
@@ -74,18 +76,22 @@ else {
   
 
   return (
-    <div>
-    
-      <form >
+    <div className='h-screen w-[100%] flex justify-center items-center'>
+    <div className="login-box border border-black w-[40%]">
+    <span className=" m-60">
+         <h1 className="mt-[0.1em] text-[#242427] text-center m-2  text-6xl font-bold p-0">Events</h1>
+         <p className='text-center text-3xl font-semibold m-4'>Create an account</p>
+         <p className='text-center'>Already have an account? <Link className='underline' to="/login">Login</Link></p>
+         </span>
+      <form  className='flex flex-col w-[100%]' >
+        <input type="text" name="username" onChange={handleChangeUserName} placeholder="username" id="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block mx-auto w-[90%] text-left p-2.5 my-3" required />
+        <input type="email" name="mailid" onChange={handleChangeEmail} placeholder="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block mx-auto w-[90%] text-left p-2.5 my-3" required />
+        <input type="password" name="pass" onChange={handleChange1} placeholder="Password" id="password" className='p1 bg-gray-50 border border-gray-300 text-gray-900 text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block mx-auto w-[90%] text-left p-2.5 my-3' required/>
+        <input type="password" name="pass" onChange={handleChange2} placeholder="Check Password" id="checkpassword" className='p2 bg-gray-50 border border-gray-300 text-gray-900 text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block mx-auto w-[90%] text-left p-2.5 my-3' required/>
 
-
-        <input type="text" name="username" onChange={handleChangeUserName} placeholder="johndoe" id="text" required />
-        <input type="email" name="mailid" onChange={handleChangeEmail} placeholder="johndoe@example.com" id="email" required />
-        <input type="password" name="pass" onChange={handleChange1} placeholder="Password" id="password" className='p1' required/>
-        <input type="password" name="pass" onChange={handleChange2} placeholder="Check Password" id="checkpassword" className='p2' required/>
-
-        <button type="submit" onClick={Performsignup}>Submit</button>
+        <button type="submit" className="my-0 mx-auto text-center text-white bg-[#242427] px-2 py-1 mb-3  text-2xl rounded-md font-hls w-[90%]" onClick={Performsignup}>Submit</button>
       </form>
+      </div>
 
 
     </div>

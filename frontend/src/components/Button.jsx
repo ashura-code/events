@@ -5,20 +5,9 @@ export default function Button({name}) {
     <div>
         <button
 
+         className="text-white bg-[#242427] px-2 py-1  text-2xl rounded-md font-hls"
         
-
-        style={{
-          color:"white",
-          background:"black",
-          fontFamily:"sans-serif",
-          padding:"0.5em",
-          border:"1px solid black",
-          borderRadius:"5px",
-          fontSize:"1.2em",
-
-        }}
-        
-        
+      
         >{name}</button>
 
         
