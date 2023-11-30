@@ -7,6 +7,7 @@ import { getevent } from '../lib/getevent';
 
 export default function Register() {
   const [button_value, setButton_value] = useState('confirm your registration');
+  const [sec_id,setSec_id] = useState([]);
 
   const { id } = useParams();
   const event_id = Number(id);
@@ -33,6 +34,7 @@ export default function Register() {
 
     if (response.ok) {
       const data = await response.json();
+      setSec_id(data.id)
       let temp = '';
 
       if (data.Purchased === null) {
@@ -43,6 +45,7 @@ export default function Register() {
         let temp = JSON.parse(data.Purchased);
         const simiar_event = temp.find((ev_id) => ev_id === event_id);
         if (simiar_event) {
+          setButton_value("already registered for the event")
           alert('already registed for the event');
           return;
         } else {
@@ -71,6 +74,8 @@ export default function Register() {
         redirect: 'follow',
       };
 
+      if(Number(sec_id) === Number(user_id)){
+
       fetch(`http://localhost:1337/api/users/${user_id}/?populate=*`, requestOptions)
         .then((response) => console.log(response.text()))
         .then((result) =>  {
@@ -78,6 +83,8 @@ export default function Register() {
           setButton_value("successfully registered for the event")
         })
         .catch((error) => console.log('error', error));
+      }
+        
     }
   };
 
