@@ -11,6 +11,7 @@ function Signup() {
   const[email,setEmail] = useState('');
   const [password1, setPassword1] = useState('');
   const [password2, setPassword2] = useState('');
+  const [error_msg,setError_msg] = useState('');
 
   const handleChangeUserName =(e)=>{
     setUsername(e.target.value)
@@ -36,12 +37,12 @@ function Signup() {
   if(password1 != '')
     if (password1 === password2) {
       // Passwords match, call the signup function with the password.
-      alert('Signed in successfully!!') 
+      console.log('Signing in...') 
       sendcred(email,password1,username);
     } else { 
       // Passwords do not match, handle the error or show a message.
       console.error('Passwords do not match');
-      alert('Passwords do not match')
+      setError_msg('Passwords do not match')
     }
   };
 
@@ -69,14 +70,18 @@ if(response.ok)
     }
 
 else {
-  console.log(response)
+  const data = await response.json()
+  if(data.error.name === "InternalServerError"){
+    setError_msg("The username is already taken or the mail is already registered")
+  }
+  
 }
      
   }
   
 
   return (
-    <div className='h-screen w-[100%] flex justify-center items-center'>
+    <div className='h-screen w-[100%] flex flex-col justify-center items-center'>
     <div className="login-box border border-black w-[40%]">
     <span className=" m-60">
          <h1 className="mt-[0.1em] text-[#242427] text-center m-2  text-6xl font-bold p-0">Events</h1>
@@ -92,6 +97,7 @@ else {
         <button type="submit" className="my-0 mx-auto text-center text-white bg-[#242427] px-2 py-1 mb-3  text-2xl rounded-md font-hls w-[90%]" onClick={Performsignup}>Submit</button>
       </form>
       </div>
+      <p className=' text-red-500'>{error_msg}</p>
 
 
     </div>

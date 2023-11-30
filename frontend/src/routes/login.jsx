@@ -38,12 +38,12 @@ export default function Login() {
       const data = await response.json();
       setToken(data);
     } else {
-      alert('check your email or password again');
+      setError_msg("check your email or password and try again")
     }
   };
 
   return (
-    <div className="h-screen w-[100%] flex justify-center items-center">
+    <div className="h-screen w-[100%] flex flex-col justify-center items-center">
       <div className="login-box border border-black w-[40%]">
         <span className=" m-60">
           <h1 className="mt-[0.1em] text-[#242427] text-center m-2  text-6xl font-bold p-0">
@@ -80,6 +80,7 @@ export default function Login() {
           </button>
         </form>
       </div>
+      <p className='text-left text-red-600'>{error_msg}</p>
     </div>
   );
 }
