@@ -55,8 +55,8 @@ export default function EventPage() {
         <div className=' p-11 ml-5'>
 
             <div>
-              <h1 className='max-w-xl md:text-8xl mt-2 mb-6 text-xl font-bold '>{Name}</h1>
-              <p className=' m-5'>{Description}</p>
+              <h1 className='max-w-xl md:text-8xl mt-2 mb-2 text-xl font-bold '>{Name}</h1>
+              <p className='mb-6'>{Description}</p>
               <p><b>Date:</b>{Date}</p>
               <p><b>Venue:</b> {Venue}</p>
               <p><b>Organizer:</b> {Organizer}</p>
