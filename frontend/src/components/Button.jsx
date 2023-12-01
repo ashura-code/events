@@ -5,7 +5,7 @@ export default function Button({name}) {
     <div>
         <button
 
-         className="text-white bg-[#242427] px-2 py-1  text-2xl rounded-md font-hls"
+         className="text-white bg-[#242427] px-1 py-1  text-xl rounded-md font-hls"
         
       
         >{name}</button>

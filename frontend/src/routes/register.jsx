@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
@@ -8,6 +8,8 @@ import { getevent } from '../lib/getevent';
 export default function Register() {
   const [button_value, setButton_value] = useState('confirm your registration');
   const [sec_id,setSec_id] = useState([]);
+  const [ex_msg,setEx_msg] = useState("");
+  const [show_btn,setShow_btn] = useState(false)
 
   const { id } = useParams();
   const event_id = Number(id);
@@ -18,7 +20,7 @@ export default function Register() {
   
 
   const handleusers = async () => {
-    setButton_value("loading...")
+    // setButton_value("loading...")
     const response = await fetch(
       'http://localhost:1337/api/users/me/?populate=*',
       {
@@ -27,9 +29,12 @@ export default function Register() {
     );
 
     if (response.ok) {
-      setButton_value('confirming your registration');
+      setEx_msg('');
+      setButton_value("click to proceed")
     } else {
       setButton_value('an error occured , please try again after some time');
+      setEx_msg('');
+      setShow_btn(true)
     }
 
     if (response.ok) {
@@ -47,6 +52,8 @@ export default function Register() {
         if (simiar_event) {
           setButton_value("already registered for the event")
           alert('already registed for the event');
+          setShow_btn(true);
+          setEx_msg('')
           return;
         } else {
           temp.push(event_id);
@@ -81,6 +88,8 @@ export default function Register() {
         .then((result) =>  {
           console.log(result);
           setButton_value("successfully registered for the event")
+          setShow_btn(true)
+          
         })
         .catch((error) => console.log('error', error));
       }
@@ -93,12 +102,19 @@ export default function Register() {
     <div>
       <Navbar />
 
-      <div className=' h-[80vh] w-[100%] flex justify-center items-center '>
-      <span onClick={handleusers} className='flex h-[50vh] flex-col justify-center items-center border w-[50%] my-0 mx-auto border-black'>
+      <div className=' h-[80vh] w-[100%] flex flex-col justify-center items-center '>
+      <span  className='flex h-[50vh] flex-col justify-center items-center border w-[50%] my-0 mx-auto border-black'>
         <p className="m-4 text-3xl">Confirming the registration</p>
-        <Button name={button_value} />
-      </span>
+        <button onClick={handleusers} className='mb-3'><Button name={button_value} /></button>
+         {
+          show_btn && (
+             <Link to="/"><Button name="done"></Button></Link>
+          )
+         }
+      </span> 
+      <h1 className=' text-blue-600'>{ex_msg}</h1>
       </div>
+
     </div>
   );
 }
