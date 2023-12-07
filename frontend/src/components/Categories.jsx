@@ -5,7 +5,7 @@ export default function Categories() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:1337/api/event-data/?populate=*')
+    fetch(`${import.meta.env.VITE_BACK_URL}/api/event-data/?populate=*`)
       .then((res) => res.json())
       .then((data) => {
         setData(data.data);

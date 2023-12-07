@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const url = 'http://localhost:1337';
+const url = import.meta.env.VITE_BACK_URL;
 const cmd = '/api/event-data/?populate=*';
 
 export function getevents() {

@@ -4,7 +4,7 @@ import Button from '../components/Button';
 import { Link } from 'react-router-dom';
 
 export default function Login() {
-  const url = 'http://localhost:1337/api/auth/local';
+  const url = `${import.meta.env.VITE_BACK_URL}/api/auth/local`;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

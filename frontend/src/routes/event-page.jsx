@@ -20,7 +20,7 @@ export default function EventPage() {
   const [Date,setDate] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:1337/api/event-data/${id}/?populate=*`)
+    fetch(`${import.meta.env.VITE_BACK_URL}/api/event-data/${id}/?populate=*`)
       .then((res) => res.json())
       .then((res) => {
         setData([res.data]);
@@ -48,7 +48,7 @@ export default function EventPage() {
 
     (
       <div className=' h-[90vh] flex flex-col px-6 w-[100%]'>
-          <img src={`http://localhost:1337${Image}`} className=' w-[90%] h-[60%] my-0 mx-auto'/>
+          <img src={`${import.meta.env.VITE_BACK_URL}${Image}`} className=' w-[90%] h-[60%] my-0 mx-auto'/>
 
 
 

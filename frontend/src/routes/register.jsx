@@ -22,7 +22,7 @@ export default function Register() {
   const handleusers = async () => {
     // setButton_value("loading...")
     const response = await fetch(
-      'http://localhost:1337/api/users/me/?populate=*',
+      `${import.meta.env.VITE_BACK_URL}/api/users/me/?populate=*`,
       {
         headers: { Authorization: `Bearer ${token}` },
       }
@@ -83,7 +83,7 @@ export default function Register() {
 
       if(Number(sec_id) === Number(user_id)){
 
-      fetch(`http://localhost:1337/api/users/${user_id}/?populate=*`, requestOptions)
+      fetch(`${import.meta.env.VITE_BACK_URL}/api/users/${user_id}/?populate=*`, requestOptions)
         .then((response) => console.log(response.text()))
         .then((result) =>  {
           console.log(result);

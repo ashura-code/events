@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Signup() {
 
-  const url = "http://localhost:1337/api/auth/local/register"
+  const url = `${import.meta.env.VITE_BACK_URL}/api/auth/local/register`
 
   const[username,setUsername] = useState('');
   const[email,setEmail] = useState('');

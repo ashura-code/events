@@ -16,7 +16,7 @@ export default function profile() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:1337/api/users/me', reqoptions)
+    fetch(`${import.meta.env.VITE_BACK_URL}/api/users/me`, reqoptions)
       .then((res) => res.json())
       .then((data) => {
         setContent(data);

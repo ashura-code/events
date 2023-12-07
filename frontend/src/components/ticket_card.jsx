@@ -4,7 +4,7 @@ import {useState,useEffect} from "react"
 
 export default function ticket_card({id}) {
 
-    const url = "http://localhost:1337"
+    const url = import.meta.env.VITE_BACK_URL
 
     const [info,setInfo] = useState([]);
 
@@ -15,7 +15,7 @@ export default function ticket_card({id}) {
             redirect: 'follow'
           };
           
-          fetch(`http://localhost:1337/api/event-data/${id}/?populate=*`, requestOptions)
+          fetch(`${url}/api/event-data/${id}/?populate=*`, requestOptions)
             .then(response => response.json())
             .then(result => { 
                   setInfo(result)

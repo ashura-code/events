@@ -4,6 +4,7 @@ import Categories from '../components/Categories.jsx';
 
 
 function Home() {
+  console.log(import.meta.env.VITE_SOME_NAME)
   return (
     <>
       <Navbar />

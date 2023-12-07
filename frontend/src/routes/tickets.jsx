@@ -19,7 +19,7 @@ export default function Tickets() {
       redirect: 'follow',
     };
 
-    fetch('http://localhost:1337/api/users/me', request)
+    fetch(`${import.meta.env.VITE_BACK_URL}/api/users/me`, request)
       .then((res) => res.json())
       .then((data) => {
 
